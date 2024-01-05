@@ -24,17 +24,16 @@ export default async function TasksLists() {
 
     return (
         <>
-            {tasks.map(t => (
-                <div className="p-5">
+            {tasks.map((task) => (
+                <div key={task._id} className="p-5">
                     <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-center">
                         <div>
-                            <h2 className="font-bold text-2xl">{t.title}</h2>
-                            <div>{t.description}</div>
+                            <h2 className="font-bold text-2xl">{task.title}</h2>
+                            <div>{task.description}</div>
                         </div>
-
                         <div className="flex gap-2">
-                            <RemoveBtn id={t._id} />
-                            <Link href={`/editTask/${t._id}`}>
+                            <RemoveBtn id={task._id} />
+                            <Link href={`/editTask/${task._id}`}>
                                 <HiPencilAlt size={24} />
                             </Link>
                         </div>
